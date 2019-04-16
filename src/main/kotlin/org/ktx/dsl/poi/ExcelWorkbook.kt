@@ -16,8 +16,8 @@ class ExcelWorkbook : ExcelElement {
     fun sheet(init: ExcelSheet.(ExcelWorkbook) -> Unit): ExcelSheet {
         val excelSheet = ExcelSheet()
         sheetList.add(excelSheet)
-        excelSheet.create(excelSheet, workbook, sheetList.count().minus(1))
         excelSheet.init(this)
+        excelSheet.create(excelSheet, workbook, sheetList.count().minus(1))
         return excelSheet
     }
 
